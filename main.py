@@ -1,8 +1,15 @@
-mas = [5,7,4,3,8,2,16]
-n=len(mas)
+def quick_sort(s):
 
-for i in range(n):
-    for j in range(n-i-1):
-        if mas[j]>mas[j+1]:
-            mas[j],mas[j+1]=mas[j+1],mas[j]
-print(mas)
+    if len(s) <= 1:
+        return s
+
+    element = s[0]
+    left = list(filter(lambda i: i < element, s))
+    center = [i for i in s if i == element]
+    right = list(filter(lambda i: i > element, s))
+
+    return quick_sort(left) + center + quick_sort(right)
+
+print(quick_sort([5,2,9,0,1,5,3]))
+
+
