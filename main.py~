@@ -2,12 +2,7 @@ import random
 import timeit
 
 # Генерируем большой массив из случайных чисел
-array_size = 10000  # Размер массива
-a = [random.randint(-1000, 1000) for _ in range(array_size)]
-
-# Печатаем информацию о массиве
-print(f"Был сгенерирован массив из {array_size} случайных чисел.")
-print(f"Пример данных: {a[:10]} ... (выводим первые 10 элементов)")
+a = [random.randint(-1000, 1000) for _ in range(10000)]
 
 # Пузырьковая сортировка
 def bubble_sort(arr):
@@ -59,7 +54,6 @@ def measure_time_with_timeit(func, arr):
     return timeit.timeit(lambda: func(arr.copy()), number=1)
 
 # Измеряем время для каждого алгоритма
-print("\nРезультаты сортировок:")
 print(f"Пузырьковая сортировка: {measure_time_with_timeit(bubble_sort, a):.6f} секунд")
 print(f"Быстрая сортировка: {measure_time_with_timeit(quick_sort, a):.6f} секунд")
 print(f"Сортировка выбором: {measure_time_with_timeit(selection_sort, a):.6f} секунд")
