@@ -1,14 +1,14 @@
-a = [-3,5,0,-8,1,10]
+a = [-3,5,0,-8,1,10,14,-1]
 
 
-def selection_sort(arr):
-    for i in range(len(arr)):
-        min_index = i
-        for j in range(i+1, len(arr)):
-            if arr[min_index] > arr[j]:
-                min_index = j
-        arr[i], arr[min_index] = arr[min_index], arr[i]
+def insert_sort(arr):
+    for i in range(1, len(arr)):
+        key = arr[i]
+        j = i - 1
+        while j >= 0 and arr[j] > key:
+            arr[j + 1] = arr[j]
+            j -= 1
+        arr[j + 1] = key
+    return arr
 
-
-selection_sort(a)
-print(a)
+print(insert_sort(a))
